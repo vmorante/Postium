@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Post } from "../../models/post";
 import { PostService } from '../../services/post.service';
+import { Category } from '../../models/category';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
     templateUrl: "post-details.component.html",
@@ -13,7 +15,7 @@ export class PostDetailsComponent implements OnInit {
     post: Post;
     @Output() autorSeleccionado: EventEmitter<Post> = new EventEmitter();
 
-    constructor(   private _postService: PostService, private _router: Router,private _activatedRoute: ActivatedRoute) { }
+    constructor(   private _postService: PostService, private _router: Router, private _categoryService:CategoryService,private _activatedRoute: ActivatedRoute) { }
 
     ngOnInit(): void {
         this._activatedRoute.data.forEach((data: { post: Post}) => this.post = data.post);
@@ -47,5 +49,13 @@ mostrarAutor(post:Post){
      | para hacer esto necesitas inyectar como dependencia el Router de la app. La ruta a navegar es '/posts/categories', |
      | pasando como parámetro el identificador de la categoría.                                                           |
      |--------------------------------------------------------------------------------------------------------------------*/
+mostrarCategorias(category:Category){
+        //console.log(user.id);
+        this._postService.getCategoryPosts(category.id)
+                            .subscribe(post=>{
+                                this._router.navigate([`posts/categories/${category.id}`])
+                            })
 
+
+    }
 }
