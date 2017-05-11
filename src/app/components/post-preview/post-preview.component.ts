@@ -12,6 +12,7 @@ export class PostPreviewComponent {
     @Input() post: Post;
 
    @Output() postSeleccionado: EventEmitter<Post> = new EventEmitter();
+  //postSeleccionado: Post;
 
 
     /*------------------------------------------------------------------------------------------------------------------|
@@ -29,9 +30,12 @@ export class PostPreviewComponent {
      | de eventos; la idea es enviar al componente padre el post sobre el cuál se ha hecho clic. Y puesto que dicho     |
      | clic se realiza en el template de este componente, necesitas, además, un manejador para el mismo.                |
      |------------------------------------------------------------------------------------------------------------------*/
-
-     mostrarDetalles(post:Post):void{
+     
+     notificarPostSeleccionado(post:Post):void{
+         //console.log("hola")
+         //console.log(post);
          this.postSeleccionado.emit(post);
+         //this.postSeleccionado=post;
      }
 
     plainTextToHtml(text: string): string {

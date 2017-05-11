@@ -1,7 +1,8 @@
 import { Component, Input } from "@angular/core";
 
 import { Post } from "../../models/post";
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { PostService } from '../../services/post.service';
 
 @Component({
     selector: "posts-list",
@@ -11,7 +12,10 @@ export class PostsListComponent {
 
     @Input() posts: Post[];
 
-
+constructor(
+    private _postService: PostService,
+    private _router: Router
+  ) {}
 
     /*------------------------------------------------------------------------------------------------------------------|
      | ~~~ Red Path ~~~                                                                                                 |
@@ -29,9 +33,15 @@ export class PostsListComponent {
      | a navegar es '/posts', pasando como parámetro el identificador del post.                                        |
      |-----------------------------------------------------------------------------------------------------------------*/
 
-     ngOnInit(): void{
-         
-     }
+    mostrarDetalles(post: Post){
+        console.log(post.id);
+        this._postService.getPostDetails(post.id)
+                            .subscribe(post =>{
+                                this._router.navigate([`posts/${post.id}`])
+                            })
+
+
+    }
      
 
 
