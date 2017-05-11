@@ -1,7 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute} from "@angular/router";
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Post } from "../../models/post";
+import { PostService } from '../../services/post.service';
 
 @Component({
     templateUrl: "post-details.component.html",
@@ -10,8 +11,9 @@ import { Post } from "../../models/post";
 export class PostDetailsComponent implements OnInit {
 
     post: Post;
+    @Output() autorSeleccionado: EventEmitter<Post> = new EventEmitter();
 
-    constructor(private _activatedRoute: ActivatedRoute) { }
+    constructor(   private _postService: PostService, private _router: Router,private _activatedRoute: ActivatedRoute) { }
 
     ngOnInit(): void {
         this._activatedRoute.data.forEach((data: { post: Post}) => this.post = data.post);
@@ -29,7 +31,15 @@ export class PostDetailsComponent implements OnInit {
      | para hacer esto necesitas inyectar como dependencia el Router de la app. La ruta a navegar es '/posts/users', |
      | pasando como parámetro el identificador del autor.                                                            |
      |---------------------------------------------------------------------------------------------------------------*/
+mostrarAutor(post:Post){
+        //console.log(user.id);
+        this._postService.getUserPosts(post.author.id)
+                            .subscribe(user =>{
+                                this._router.navigate([`posts/users/${post.author.id}`])
+                            })
 
+
+    }
     /*--------------------------------------------------------------------------------------------------------------------|
      | ~~~ Yellow Path ~~~                                                                                                |
      |--------------------------------------------------------------------------------------------------------------------|

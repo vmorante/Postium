@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Post } from "../../models/post";
+import { User } from '../../models/user';
 
 @Component({
     selector: "post-preview",
@@ -12,6 +13,7 @@ export class PostPreviewComponent {
     @Input() post: Post;
 
    @Output() postSeleccionado: EventEmitter<Post> = new EventEmitter();
+   @Output() autorSeleccionado: EventEmitter<Post> = new EventEmitter();
   //postSeleccionado: Post;
 
 
@@ -36,6 +38,13 @@ export class PostPreviewComponent {
          //console.log(post);
          this.postSeleccionado.emit(post);
          //this.postSeleccionado=post;
+     }
+
+      notificarAutorSeleccionado(post:Post):void{
+         // console.log(user);
+         
+         this.autorSeleccionado.emit(post);
+         
      }
 
     plainTextToHtml(text: string): string {
