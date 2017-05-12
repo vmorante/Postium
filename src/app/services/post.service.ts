@@ -2,11 +2,15 @@ import { Inject, Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
+import "rxjs/add/operator/filter";
+import "rxjs/add/operator/concatMap";
+
 import * as moment from "moment";
 import "moment/locale/es";
 
 import { BackendUri } from "./settings.service";
 import { Post } from "../models/post";
+import { Category } from '../models/category';
 
 @Injectable()
 export class PostService {
@@ -66,6 +70,7 @@ export class PostService {
     }
 
     getCategoryPosts(id: number): Observable<Post[]> {
+        console.log(id)
 
         /*--------------------------------------------------------------------------------------------------|
          | ~~~ Yellow Path ~~~                                                                              |
@@ -91,7 +96,25 @@ export class PostService {
         var queryString=`publicationDate_lte=${x}&_sort=publicationDate&_order=DESC`;
         return this._http
                    .get(`${this._backendUri}/posts?${queryString}`)
-                   .map((response: Response) => Post.fromJsonToList(response.json()));
+                   
+                   .map((response: Response)  =>{
+                       const lista: Post[] =Post.fromJsonToList(response.json());
+                      
+                       var listaNueva:Post[] =[];
+                       lista.forEach(element => {
+                        element.categories.forEach(element2 => {
+                               if(element2.id==id)
+                                listaNueva.push(element)
+                               
+                           });
+                           
+                       });
+                       
+                       return listaNueva
+
+                    })
+                   
+                   
     }
 
     getPostDetails(id: number): Observable<Post> {

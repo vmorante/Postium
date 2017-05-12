@@ -5,6 +5,7 @@ import { Observable } from "rxjs/Observable";
 import { Post } from "../models/post";
 import { PostService } from "./post.service";
 import { UserPostsComponent } from '../components/user-posts/user-posts.component';
+import { CategoryPostsComponent } from '../components/category-posts/category-posts.component';
 
 @Injectable()
 export class PostsResolve implements Resolve<Post[]> {
@@ -24,6 +25,7 @@ export class PostsResolve implements Resolve<Post[]> {
          console.log(route.params['userId'])
        return this._postService.getUserPosts(route.params['userId'])
          }
+
         /*-----------------------------------------------------------------------------------------|
          | ~~~ Yellow Path ~~~                                                                     |
          |-----------------------------------------------------------------------------------------|
@@ -31,8 +33,12 @@ export class PostsResolve implements Resolve<Post[]> {
          | a una categoría, llame a la función 'getCategoryPosts()' del servicio PostService.      |
          | Recuerda mirar en los parámetros de la ruta, a ver qué encuentras.                      |
          |-----------------------------------------------------------------------------------------*/
-else{
+         if(route.component=== CategoryPostsComponent){
+        
+       return this._postService.getCategoryPosts(route.params['categoryId'])
+         }
+
         return this._postService.getPosts();
-}
+
     }
 }

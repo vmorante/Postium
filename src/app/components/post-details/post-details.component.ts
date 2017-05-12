@@ -50,7 +50,7 @@ mostrarAutor(post:Post){
      | pasando como parámetro el identificador de la categoría.                                                           |
      |--------------------------------------------------------------------------------------------------------------------*/
 mostrarCategorias(category:Category){
-        //console.log(user.id);
+        
         this._postService.getCategoryPosts(category.id)
                             .subscribe(post=>{
                                 this._router.navigate([`posts/categories/${category.id}`])

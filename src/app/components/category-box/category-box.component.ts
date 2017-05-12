@@ -20,7 +20,7 @@ export class CategoryBoxComponent {
      | clic se realiza en el template de este componente, necesitas, además, un manejador para el mismo.                 |
      |-------------------------------------------------------------------------------------------------------------------*/
  notificarCategoriasSeleccionadas(categories:Category):void{
-         // console.log(user);
+          console.log(categories);
          
          this.categoriesSeleccionadas.emit(categories);
          
