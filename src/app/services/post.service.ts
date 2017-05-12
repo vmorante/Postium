@@ -5,6 +5,8 @@ import "rxjs/add/operator/map";
 import "rxjs/add/operator/filter";
 import "rxjs/add/operator/concatMap";
 
+
+
 import * as moment from "moment";
 import "moment/locale/es";
 
@@ -96,7 +98,13 @@ export class PostService {
         var queryString=`publicationDate_lte=${x}&_sort=publicationDate&_order=DESC`;
         return this._http
                    .get(`${this._backendUri}/posts?${queryString}`)
-                   
+                   //postList=postList.filter((post:post)=>
+                   //let ind=post.categories.findIndex((category)=>)
+                   //return category.id==+id
+                   //)
+                //if(ind==-1)
+                   //return false;
+                   //return true
                    .map((response: Response)  =>{
                        const lista: Post[] =Post.fromJsonToList(response.json());
                       
@@ -134,7 +142,10 @@ export class PostService {
          | datos actualizados obtenidos tras la inserción; puedes usar la función estática  |
          | 'fromJson() para crar un nuevo objeto Post basado en la respuesta HTTP obtenida. |
          |----------------------------------------------------------------------------------*/
+         console.log(post);
 
-        return null;
+        return this._http
+               .post('http://localhost:3004/posts', post)
+               .map(res => Post.fromJson(res.json()));
     }
 }
