@@ -16,7 +16,8 @@ export class PostsListComponent {
     
 constructor(
     private _postService: PostService,
-    private _router: Router
+    private _router: Router,
+     
   
   ) {}
 

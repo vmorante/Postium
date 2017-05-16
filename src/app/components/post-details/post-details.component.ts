@@ -5,6 +5,7 @@ import { Post } from "../../models/post";
 import { PostService } from '../../services/post.service';
 import { Category } from '../../models/category';
 import { CategoryService } from '../../services/category.service';
+import { element } from 'protractor';
 
 @Component({
     templateUrl: "post-details.component.html",
@@ -14,6 +15,7 @@ export class PostDetailsComponent implements OnInit {
 
     post: Post;
     @Output() autorSeleccionado: EventEmitter<Post> = new EventEmitter();
+    @Output() postSeleccionado: EventEmitter<Post> = new EventEmitter();
 
     constructor(   private _postService: PostService, private _router: Router, private _categoryService:CategoryService,private _activatedRoute: ActivatedRoute) { }
 
@@ -57,5 +59,8 @@ mostrarCategorias(category:Category){
                             })
 
 
+    }
+    edit(post:Post){
+        this._router.navigate([`edit-post/${post.id}`])
     }
 }

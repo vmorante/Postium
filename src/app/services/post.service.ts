@@ -148,4 +148,14 @@ export class PostService {
                .post('http://localhost:3004/posts', post)
                .map(res => Post.fromJson(res.json()));
     }
+
+   editPost(post: Post): Observable<Post> {
+
+       
+         console.log(post);
+
+        return this._http
+               .put(`http://localhost:3004/posts/${post.id}`,post)
+               .map(res => Post.fromJson(res.json()));
+    }
 }

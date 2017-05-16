@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { FormGroup } from "@angular/forms";
 
 import { Post } from "../../models/post";
@@ -15,6 +15,7 @@ export class PostFormComponent implements OnInit {
     publicationDateScheduled: boolean = false;
 
     @Output() postSubmitted: EventEmitter<Post> = new EventEmitter();
+    @Input() post :Post = <Post>{}
 
     ngOnInit(): void {
         this.nowDatetimeLocal = this._formatDateToDatetimeLocal(new Date());
@@ -61,7 +62,9 @@ export class PostFormComponent implements OnInit {
          | nada a lo indicado en el formulario. Por tanto, pon especial atención a que los nombres indicados en los    |
          | distintos elementos del formulario se correspondan con las propiedades de la clase Post.                    |
          |-------------------------------------------------------------------------------------------------------------*/
- console.log(form)
+
+         const postForms=form.value;
+            postForms.id =this.post.id ? this.post.id:null;
         let post: Post = Post.fromJson(form.value);
         post.likes = 0;
         post.categories=[];
