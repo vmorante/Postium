@@ -6,6 +6,7 @@ import { PostService } from '../../services/post.service';
 import { Category } from '../../models/category';
 import { CategoryService } from '../../services/category.service';
 import { element } from 'protractor';
+import { Subscription } from "rxjs/Subscription";
 
 @Component({
     templateUrl: "post-details.component.html",
@@ -17,6 +18,7 @@ export class PostDetailsComponent implements OnInit {
     @Output() autorSeleccionado: EventEmitter<Post> = new EventEmitter();
     @Output() postSeleccionado: EventEmitter<Post> = new EventEmitter();
 
+    private _postSubscription: Subscription;
     constructor(   private _postService: PostService, private _router: Router, private _categoryService:CategoryService,private _activatedRoute: ActivatedRoute) { }
 
     ngOnInit(): void {
@@ -63,4 +65,14 @@ mostrarCategorias(category:Category){
     edit(post:Post){
         this._router.navigate([`edit-post/${post.id}`])
     }
+
+    like(post:Post){
+        this.post=post;
+        console.log(post.likes)
+        post.likes.id=post.likes.id + 1;
+        this._postSubscription = this._postService.editPost(post).subscribe(() => this._router.navigate([`/posts/${post.id}`]));
+
+    }
+
+   
 }

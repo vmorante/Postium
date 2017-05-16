@@ -19,8 +19,9 @@
         |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
         -->
         <span class="date">{{ post.publicationDate | FromNowPipe }}</span>
-        <button class="button-primary u-pull-right" (click)="edit(post)">Editar</button>
+
         <!--broken white path-->
+        <button class="button-primary u-pull-right" (click)="edit(post)">Editar</button>
 
     </div>
 </div>
@@ -39,4 +40,6 @@
     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
     -->
     <category-box [categories]="post.categories" (categoriesSeleccionadas)="mostrarCategorias($event)"></category-box>
+    <p> {{ post.likes.id }} Likes</p>
+    <button class="button-primary u-pull-right" (click)="like(post)">Me gusta</button>
 </div>

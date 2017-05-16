@@ -158,4 +158,6 @@ export class PostService {
                .put(`http://localhost:3004/posts/${post.id}`,post)
                .map(res => Post.fromJson(res.json()));
     }
+
+    
 }

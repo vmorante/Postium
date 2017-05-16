@@ -31,6 +31,7 @@ import { SearchBoxComponent } from "./components/search-box/search-box.component
 import { UserPostsComponent } from "./components/user-posts/user-posts.component";
 import { FromNowPipe } from './pipes/from-now.pipe';
 import { EditPostComponent } from './components/edit-post/edit-post.component';
+import { LikeService } from './services/like.service';
 
 @NgModule({
     imports: [
@@ -70,6 +71,7 @@ import { EditPostComponent } from './components/edit-post/edit-post.component';
         PostDetailsResolve,
         PostService,
         PostsResolve,
+        LikeService
     ],
     bootstrap: [
         AppComponent
