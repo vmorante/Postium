@@ -33,6 +33,7 @@ import { FromNowPipe } from './pipes/from-now.pipe';
 import { EditPostComponent } from './components/edit-post/edit-post.component';
 import { LikeService } from './services/like.service';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { PostSearchComponent } from './components/post-search/post-search.component';
 
 @NgModule({
     imports: [
@@ -65,7 +66,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
         UserPostsComponent,
         FromNowPipe,
         EditPostComponent,
-        LoginFormComponent
+        LoginFormComponent,
+        PostSearchComponent
     ],
     providers: [
         BackendUriProvider,
