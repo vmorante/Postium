@@ -1,15 +1,8 @@
-boton en post.details.component con click
-editPost que vaya a edit-story en details.component.ts
-
-creamos componente nuevo
--htm post form editpost(event) <post-form [post]="post" (postSubmitted)="editPost($event)"></post-form>
--ts subcribe y navigate to post.id
-
-post service crear con put
-
--------
-boton en post details 
-
-en details subcribe  dos funciones
-
-crear servicio
+app-routing
+-search-post con resolve
+ header 
+HTML
+-(onSearch)="search($event)
+component
+nvigate que reciba string
+this._router.navigate(['search-posts'], { queryParams: { q: busqueda } 
