@@ -9,6 +9,8 @@ import { UserPostsComponent } from "./components/user-posts/user-posts.component
 import { PostDetailsResolve } from "./services/post-details-resolve.service";
 import { PostsResolve } from "./services/posts-resolve.service";
 import { EditPostComponent } from "./components/edit-post/edit-post.component";
+import { PostFormComponent } from './components/post-form/post-form.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 const routes: Routes = [
     {
@@ -35,6 +37,11 @@ const routes: Routes = [
     {
         path: "new-story",
         component: NewStoryComponent
+    },
+    {
+        path: "login",
+        component:  LoginFormComponent
+
     },
      {
         path: "edit-post/:postId",

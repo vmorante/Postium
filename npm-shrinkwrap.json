@@ -189,6 +189,11 @@
       "resolved": "https://registry.npmjs.org/amdefine/-/amdefine-1.0.1.tgz",
       "dev": true
     },
+    "angular-2-local-storage": {
+      "version": "1.0.1",
+      "from": "angular-2-local-storage@latest",
+      "resolved": "https://registry.npmjs.org/angular-2-local-storage/-/angular-2-local-storage-1.0.1.tgz"
+    },
     "ansi-align": {
       "version": "1.1.0",
       "from": "ansi-align@>=1.1.0 <2.0.0",

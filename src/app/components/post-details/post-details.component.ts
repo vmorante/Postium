@@ -7,6 +7,8 @@ import { Category } from '../../models/category';
 import { CategoryService } from '../../services/category.service';
 import { element } from 'protractor';
 import { Subscription } from "rxjs/Subscription";
+import { User } from '../../models/user';
+import { LocalStorageModule } from 'angular-2-local-storage';
 
 @Component({
     templateUrl: "post-details.component.html",
@@ -15,6 +17,7 @@ import { Subscription } from "rxjs/Subscription";
 export class PostDetailsComponent implements OnInit {
 
     post: Post;
+    id:number;
     @Output() autorSeleccionado: EventEmitter<Post> = new EventEmitter();
     @Output() postSeleccionado: EventEmitter<Post> = new EventEmitter();
 
@@ -23,6 +26,7 @@ export class PostDetailsComponent implements OnInit {
 
     ngOnInit(): void {
         this._activatedRoute.data.forEach((data: { post: Post}) => this.post = data.post);
+        this._activatedRoute.data.forEach((data: { id: number}) => this.id = Number(localStorage.getItem("usuario")));
         window.scrollTo(0, 0);
     }
 
@@ -68,9 +72,18 @@ mostrarCategorias(category:Category){
 
     like(post:Post){
         this.post=post;
-        console.log(post.likes)
-        post.likes.id=post.likes.id + 1;
+        var user=Number(localStorage.getItem("usuario"))
+        console.log(user)
+        //User.UsuarioActual=User.defaultUser();
+        console.log(post.likesUser)
+
+        if(post.likesUser.indexOf(user)!=-1)
+            console.log("ya le ha dado a me gusta")
+      else{
+        post.likesUser.push( user)
+        post.likes=post.likes +1;
         this._postSubscription = this._postService.editPost(post).subscribe(() => this._router.navigate([`/posts/${post.id}`]));
+      }
 
     }
 

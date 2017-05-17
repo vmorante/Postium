@@ -1,0 +1,11 @@
+<form #login="ngForm" (ngSubmit)="submitPost(login)" novalidate>
+
+    <input type="text" id="username" name="username" placeholder="username" class="u-full-width" ngModel #usernameRef="ngModel" required>
+    <div class="mensaje-error" *ngIf="usernameRef.touched && usernameRef.errors?.required">
+        El campo username es requerido
+    </div>
+
+
+
+    <button type="submit" class="button-primary u-pull-right" [disabled]="login.invalid">Publicar</button>
+</form>

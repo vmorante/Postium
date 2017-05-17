@@ -66,7 +66,7 @@ export class PostFormComponent implements OnInit {
          const postForms=form.value;
             postForms.id =this.post.id ? this.post.id:null;
         let post: Post = Post.fromJson(form.value);
-        post.likes.id = 0;
+        post.likes= 0;
         post.categories=[];
         
         post.media=" ";

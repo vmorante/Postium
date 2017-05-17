@@ -1,3 +1,5 @@
+import { LocalStorageModule } from 'angular-2-local-storage';
+
 export class User {
     
     private constructor(
@@ -7,6 +9,8 @@ export class User {
         public email: string,
         public avatar: string
     ) { }
+
+    
 
     static fromJson(json: any): User {
         return new User(
@@ -27,4 +31,6 @@ export class User {
             "assets/images/keepcoder.jpg"
         )
     }
+
+    
 }
