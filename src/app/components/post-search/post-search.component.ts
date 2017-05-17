@@ -23,12 +23,13 @@ export class PostSearchComponent implements OnInit {
     
   }
 // mostrarPostsBuscados(post: Post){
-//        this._activatedRoute.queryParams.subscribe(params =>      
-//         this._postService.searchPost(params.q)
-//                             .subscribe()
-//                             })
-
-
+//        this._activatedRoute.queryParams.subscribe(params => {    
+//         this._postService.searchPost(params.q).map(
+ +          /*(posts: Post[]) => {
+ +
+ +            this.posts = posts;
+ +          }).subscribe();
+ +      });*/
 //     }
      
 
