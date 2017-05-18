@@ -12,8 +12,7 @@ export class HeaderBarComponent {
 
 
 
- search(texto:string){
-     console.log("hola")
+     search(texto:string){ 
     
                this._router.navigate(['search'], { queryParams: { q: texto } })    
 
