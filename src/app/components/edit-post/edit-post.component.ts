@@ -39,7 +39,7 @@ private _postSubscription: Subscription;
     editPost(post: Post): void {
         this._unsubscribePostCreation();
         this.post=post;
-        console.log(post)
+       
         this._postSubscription = this._postService.editPost(post).subscribe(() => this._router.navigate([`/posts/${post.id}`]));
     }
 

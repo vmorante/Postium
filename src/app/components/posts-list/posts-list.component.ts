@@ -51,7 +51,7 @@ constructor(
      |-----------------------------------------------------------------------------------------------------------------*/
 
     mostrarDetalles(post: Post){
-        console.log(post.id);
+       
         this._postService.getPostDetails(post.id)
                             .subscribe(post =>{
                                 this._router.navigate([`posts/${post.id}`])

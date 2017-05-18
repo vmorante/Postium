@@ -142,7 +142,7 @@ export class PostService {
          | datos actualizados obtenidos tras la inserción; puedes usar la función estática  |
          | 'fromJson() para crar un nuevo objeto Post basado en la respuesta HTTP obtenida. |
          |----------------------------------------------------------------------------------*/
-         console.log(post);
+        
 
         return this._http
                .post('http://localhost:3004/posts', post)
@@ -152,7 +152,7 @@ export class PostService {
    editPost(post: Post): Observable<Post> {
 
        
-         console.log(post);
+        
 
         return this._http
                .put(`http://localhost:3004/posts/${post.id}`,post)
@@ -160,7 +160,7 @@ export class PostService {
     }
 
     searchPost(texto: string):Observable<Post[]> {
-        console.log("post.service")
+      
 
        var queryString=`q=${texto}`;
          return this._http

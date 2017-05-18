@@ -24,7 +24,7 @@ export class PostFormComponent implements OnInit {
     ngOnInit(): void {
         this.nowDatetimeLocal = this._formatDateToDatetimeLocal(new Date());
          //this._activatedRoute.data.forEach((data: { post: Post }) => this.post = data.post);
-         console.log(this.post)
+         
     }
 
     private _formatDateToDatetimeLocal(date: Date) {
@@ -76,7 +76,7 @@ export class PostFormComponent implements OnInit {
         //    postForms.id =this.post.id ? this.post.id:null;
         //     postForms.id =this.post.id ? this.post.id:null;
        // postForms =this.post ? postForms:null
-        console.log(postForms)
+       
         let post: Post = Post.fromJson(form.value);
         post.likes= 0;
         post.categories=[];
