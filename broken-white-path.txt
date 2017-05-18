@@ -1,8 +1,0 @@
-app-routing
--search-post con resolve
- header 
-HTML
--(onSearch)="search($event)
-component
-nvigate que reciba string
-this._router.navigate(['search-posts'], { queryParams: { q: busqueda } 
