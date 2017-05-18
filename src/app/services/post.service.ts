@@ -160,11 +160,14 @@ export class PostService {
     }
 
     searchPost(texto: string):Observable<Post[]> {
+        console.log("post.service")
 
-       var queryString="q=texto";
+       var queryString=`q=${texto}`;
          return this._http
                    .get(`${this._backendUri}/posts?${queryString}`)                 
                    .map((response: Response) => Post.fromJsonToList(response.json()));
+            
     }
+    
     
 }

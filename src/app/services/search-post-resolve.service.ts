@@ -10,8 +10,9 @@ export class PostsSearchResolve {
   constructor(private _postService: PostService) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<Post[]> {
-
-    const busqueda = route.queryParams.q;
-    return this._postService.searchPosts(busqueda);
+console.log(route.queryParams);
+    
+   return this._postService.searchPost(route.queryParams.q);
+   
   }
 }

@@ -34,6 +34,7 @@ import { EditPostComponent } from './components/edit-post/edit-post.component';
 import { LikeService } from './services/like.service';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { PostSearchComponent } from './components/post-search/post-search.component';
+import { PostsSearchResolve } from './services/search-post-resolve.service';
 
 @NgModule({
     imports: [
@@ -75,7 +76,7 @@ import { PostSearchComponent } from './components/post-search/post-search.compon
         PostDetailsResolve,
         PostService,
         PostsResolve,
-        LikeService
+        PostsSearchResolve
     ],
     bootstrap: [
         AppComponent

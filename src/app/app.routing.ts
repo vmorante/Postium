@@ -11,6 +11,8 @@ import { PostsResolve } from "./services/posts-resolve.service";
 import { EditPostComponent } from "./components/edit-post/edit-post.component";
 import { PostFormComponent } from './components/post-form/post-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { PostSearchComponent } from './components/post-search/post-search.component';
+import { PostsSearchResolve } from './services/search-post-resolve.service';
 
 const routes: Routes = [
     {
@@ -55,6 +57,13 @@ const routes: Routes = [
         component: PostDetailsComponent,
         resolve: {
             post: PostDetailsResolve
+        }
+    },
+    {
+        path: "search",
+        component: PostSearchComponent,
+        resolve: {
+            post:  PostsSearchResolve
         }
     },
     {

@@ -329,6 +329,23 @@
         1,
         0
       ]
+    },
+    {
+      "id": 12,
+      "title": "prueba",
+      "intro": "prueba para busqueda",
+      "body": "busqueda",
+      "media": " ",
+      "publicationDate": 1495099315772,
+      "categories": [],
+      "author": {
+        "id": 1,
+        "name": "KeepCoder",
+        "username": "keepcoder",
+        "email": "keepcoder@postium.com",
+        "avatar": "assets/images/keepcoder.jpg"
+      },
+      "likes": 0
     }
   ],
   "categories": [

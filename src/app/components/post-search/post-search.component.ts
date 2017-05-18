@@ -18,19 +18,21 @@ export class PostSearchComponent implements OnInit {
 
   ngOnInit() {
     this._activatedRoute.data.forEach((data: { posts: Post[] }) => this.posts = data.posts);
-       
+        console.log(this.posts)
         window.scrollTo(0, 0);
-    
+     
+     this.mostrarPostsBuscados(this.posts)
   }
-// mostrarPostsBuscados(post: Post){
-//        this._activatedRoute.queryParams.subscribe(params => {    
-//         this._postService.searchPost(params.q).map(
- +          /*(posts: Post[]) => {
- +
- +            this.posts = posts;
- +          }).subscribe();
- +      });*/
-//     }
+ mostrarPostsBuscados(posts: Post[]){
+   console.log(posts)
+       this._activatedRoute.queryParams.subscribe(params => {    
+        this._postService.searchPost(params.q).map(
+        (posts: Post[]) => {
+ 
+           this.posts = posts;
+         }).subscribe();
+      });
+   }
      
 
 
