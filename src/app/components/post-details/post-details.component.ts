@@ -18,6 +18,7 @@ export class PostDetailsComponent implements OnInit {
 
     post: Post;
     id:number;
+    megusta:boolean;
     @Output() autorSeleccionado: EventEmitter<Post> = new EventEmitter();
     @Output() postSeleccionado: EventEmitter<Post> = new EventEmitter();
 
@@ -27,6 +28,18 @@ export class PostDetailsComponent implements OnInit {
     ngOnInit(): void {
         this._activatedRoute.data.forEach((data: { post: Post}) => this.post = data.post);
         this._activatedRoute.data.forEach((data: { id: number}) => this.id = Number(localStorage.getItem("usuario")));
+        var user=Number(localStorage.getItem("usuario"))
+       
+       
+        
+
+        if(this.post.likesUser.indexOf(user)!=-1){
+        this.megusta=false;
+            console.log("ya le ha dado a me gusta")
+     } else{
+         this.megusta=true;
+     }
+        
         window.scrollTo(0, 0);
     }
 
@@ -73,15 +86,17 @@ mostrarCategorias(category:Category){
     like(post:Post){
         this.post=post;
         var user=Number(localStorage.getItem("usuario"))
-        console.log(user)
+       
         //User.UsuarioActual=User.defaultUser();
-        console.log(post.likesUser)
+        
 
-        if(post.likesUser.indexOf(user)!=-1)
+        if(post.likesUser.indexOf(user)!=-1){
+        this.megusta=true;
             console.log("ya le ha dado a me gusta")
-      else{
+     } else{
         post.likesUser.push( user)
         post.likes=post.likes +1;
+        this.megusta=false;
         this._postSubscription = this._postService.editPost(post).subscribe(() => this._router.navigate([`/posts/${post.id}`]));
       }
 

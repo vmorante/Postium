@@ -16,7 +16,7 @@
     | el nombre que se ha definido en la entidad Post. Además, este campo debe ser obligatorio.       |
     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
     -->
-    <input type="text" id="title" name="title" placeholder="Título" class="u-full-width" ngModel #tituloRef="ngModel" required>
+    <input type="text" id="title" name="title" [(ngModel)]="post.title" placeholder="Título" class="u-full-width" ngModel #tituloRef="ngModel" required>
     <div class="mensaje-error" *ngIf="tituloRef.touched && tituloRef.errors?.required">
         El campo titulo es requerido
     </div>
@@ -28,7 +28,7 @@
     | el nombre que se ha definido en la entidad Post. Además, este campo debe ser obligatorio.       |
     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
     -->
-    <textarea id="intro" name="intro" placeholder="Introduce tu historia" class="u-full-width georgia-font" autogrow ngModel #introRef="ngModel" required></textarea>
+    <textarea id="intro" name="intro" placeholder="Introduce tu historia" [(ngModel)]="post.intro" class="u-full-width georgia-font" autogrow ngModel #introRef="ngModel" required></textarea>
     <div class="mensaje-error" *ngIf="introRef.touched && introRef.errors?.required">
         El campo intro es requerido
     </div>
@@ -40,7 +40,7 @@
     | el nombre que se ha definido en la entidad Post. Además, este campo debe ser obligatorio.       |
     |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
     -->
-    <textarea id="body" name="body" placeholder="Cuenta tu historia" class="u-full-width georgia-font" ngModel #bodyRef="ngModel" autogrow required></textarea>
+    <textarea id="body" name="body" placeholder="Cuenta tu historia" [(ngModel)]="post.body" class="u-full-width georgia-font" ngModel #bodyRef="ngModel" autogrow required></textarea>
     <div class="mensaje-error" *ngIf="bodyRef.touched && bodyRef.errors?.required">
         El campo body es requerido
     </div>

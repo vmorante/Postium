@@ -333,10 +333,10 @@
     {
       "id": 12,
       "title": "prueba",
-      "intro": "prueba para busqueda",
-      "body": "busqueda",
+      "intro": "posteditado",
+      "body": "1",
       "media": " ",
-      "publicationDate": 1495099315772,
+      "publicationDate": 1495105192728,
       "categories": [],
       "author": {
         "id": 1,
@@ -345,7 +345,30 @@
         "email": "keepcoder@postium.com",
         "avatar": "assets/images/keepcoder.jpg"
       },
-      "likes": 0
+      "likes": 1,
+      "likesUser": [
+        1
+      ]
+    },
+    {
+      "id": 13,
+      "title": "prueba2",
+      "intro": "prueba2",
+      "body": "prueba2",
+      "media": " ",
+      "publicationDate": 1495107196700,
+      "categories": [],
+      "author": {
+        "id": 1,
+        "name": "KeepCoder",
+        "username": "keepcoder",
+        "email": "keepcoder@postium.com",
+        "avatar": "assets/images/keepcoder.jpg"
+      },
+      "likes": 1,
+      "likesUser": [
+        1
+      ]
     }
   ],
   "categories": [

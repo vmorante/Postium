@@ -3,6 +3,7 @@ import { FormGroup } from "@angular/forms";
 
 import { Post } from "../../models/post";
 import { User } from "../../models/user";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: "post-form",
@@ -16,9 +17,14 @@ export class PostFormComponent implements OnInit {
 
     @Output() postSubmitted: EventEmitter<Post> = new EventEmitter();
     @Input() post :Post = <Post>{}
+   
+
+     constructor(private _activatedRoute: ActivatedRoute) { }
 
     ngOnInit(): void {
         this.nowDatetimeLocal = this._formatDateToDatetimeLocal(new Date());
+         //this._activatedRoute.data.forEach((data: { post: Post }) => this.post = data.post);
+         console.log(this.post)
     }
 
     private _formatDateToDatetimeLocal(date: Date) {
@@ -63,11 +69,18 @@ export class PostFormComponent implements OnInit {
          | distintos elementos del formulario se correspondan con las propiedades de la clase Post.                    |
          |-------------------------------------------------------------------------------------------------------------*/
 
-         const postForms=form.value;
-            postForms.id =this.post.id ? this.post.id:null;
+         var  postForms=form.value;
+        postForms.id =this.post.id ? this.post.id:null;
+        //  postForms.author =this.post.author ? this.post.author:null;
+          postForms.title =this.post.title ? this.post.title:null;
+        //    postForms.id =this.post.id ? this.post.id:null;
+        //     postForms.id =this.post.id ? this.post.id:null;
+       // postForms =this.post ? postForms:null
+        console.log(postForms)
         let post: Post = Post.fromJson(form.value);
         post.likes= 0;
         post.categories=[];
+        post.likesUser=[];
         
         post.media=" ";
         post.author = User.defaultUser();

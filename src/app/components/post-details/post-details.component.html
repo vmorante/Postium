@@ -41,5 +41,6 @@
     -->
     <category-box [categories]="post.categories" (categoriesSeleccionadas)="mostrarCategorias($event)"></category-box>
     <p> {{ post.likes }} Likes</p>
-    <button class="button-primary u-pull-right" (click)="like(post)">Me gusta</button>
+    <button *ngIf=megusta class="button-primary u-pull-right" (click)="like(post)">Me gusta</button>
+
 </div>
