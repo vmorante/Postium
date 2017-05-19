@@ -72,10 +72,9 @@ mostrarAutor(post:Post){
      |--------------------------------------------------------------------------------------------------------------------*/
 mostrarCategorias(category:Category){
         
-        this._postService.getCategoryPosts(category.id)
-                            .subscribe(post=>{
+     
                                 this._router.navigate([`posts/categories/${category.id}`])
-                            })
+                           
 
 
     }

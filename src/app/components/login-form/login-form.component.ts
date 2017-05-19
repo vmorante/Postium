@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { User } from '../../models/user';
 import { LocalStorageModule } from 'angular-2-local-storage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -14,7 +15,10 @@ export class LoginFormComponent implements OnInit {
     publicationDateScheduled: boolean = false;
 
 
-   
+   constructor(
+       
+        private _router: Router) { }
+
 
     ngOnInit(): void {
       
@@ -29,5 +33,9 @@ export class LoginFormComponent implements OnInit {
         localStorage.setItem("usuario",JSON.stringify(user.id))       
        console.log( user);
        
+    }
+
+    cambiar(){
+      this._router.navigate(["/"]);
     }
 }

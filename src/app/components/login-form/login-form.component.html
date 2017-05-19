@@ -4,8 +4,8 @@
     <div class="mensaje-error" *ngIf="usernameRef.touched && usernameRef.errors?.required">
         El campo username es requerido
     </div>
+    <input type="text" id="password" name="password" placeholder="password" class="u-full-width" ngModel #passwordRef="ngModel" required>
 
 
-
-    <button type="submit" class="button-primary u-pull-right" [disabled]="login.invalid">Publicar</button>
+    <button type="submit" (click)="cambiar()" class="button-primary u-pull-right" [disabled]="login.invalid">Login</button>
 </form>

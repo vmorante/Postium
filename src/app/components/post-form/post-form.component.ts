@@ -71,12 +71,11 @@ export class PostFormComponent implements OnInit {
 
          var  postForms=form.value;
         postForms.id =this.post.id ? this.post.id:null;
-        //  postForms.author =this.post.author ? this.post.author:null;
+         postForms.author =this.post.author ? this.post.author:null;
           postForms.title =this.post.title ? this.post.title:null;
-        //    postForms.id =this.post.id ? this.post.id:null;
-        //     postForms.id =this.post.id ? this.post.id:null;
-       // postForms =this.post ? postForms:null
-       
+           postForms.body =this.post.body? this.post.body:null;
+            postForms.media =this.post.media ? this.post.media:null;
+      
         let post: Post = Post.fromJson(form.value);
         post.likes= 0;
         post.categories=[];

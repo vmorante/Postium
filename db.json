@@ -312,25 +312,6 @@
       ]
     },
     {
-      "id": 11,
-      "title": "mm",
-      "intro": "mm",
-      "body": "nn",
-      "publicationDate": 1494588929301,
-      "author": {
-        "id": 1,
-        "name": "KeepCoder",
-        "username": "keepcoder",
-        "email": "keepcoder@postium.com",
-        "avatar": "assets/images/keepcoder.jpg"
-      },
-      "likes": 2,
-      "likesUser": [
-        1,
-        0
-      ]
-    },
-    {
       "id": 12,
       "title": "prueba",
       "intro": "posteditado",
@@ -385,8 +366,10 @@
         "email": "keepcoder@postium.com",
         "avatar": "assets/images/keepcoder.jpg"
       },
-      "likes": 0,
-      "likesUser": []
+      "likes": 1,
+      "likesUser": [
+        1
+      ]
     }
   ],
   "categories": [

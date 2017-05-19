@@ -42,6 +42,10 @@ const routes: Routes = [
     },
     {
         path: "login",
+        component: LoginFormComponent
+    },
+    {
+        path: "login",
         component:  LoginFormComponent
 
     },

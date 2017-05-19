@@ -7,6 +7,7 @@ import "rxjs/add/operator/concatMap";
 
 
 
+
 import * as moment from "moment";
 import "moment/locale/es";
 
@@ -72,7 +73,7 @@ export class PostService {
     }
 
     getCategoryPosts(id: number): Observable<Post[]> {
-        console.log(id)
+        
 
         /*--------------------------------------------------------------------------------------------------|
          | ~~~ Yellow Path ~~~                                                                              |
@@ -106,19 +107,30 @@ export class PostService {
                    //return false;
                    //return true
                    .map((response: Response)  =>{
-                       const lista: Post[] =Post.fromJsonToList(response.json());
-                      
-                       var listaNueva:Post[] =[];
-                       lista.forEach(element => {
-                        element.categories.forEach(element2 => {
-                               if(element2.id==id)
-                                listaNueva.push(element)
+                       const lista =Post.fromJsonToList(response.json());
+
+                     var listaNueva=lista.filter((post:Post)=>{
+                   let ind=post.categories.findIndex((category)=>{
+                   return category.id==+id
+                   })
+                if(ind==-1)
+                   return false;
+                else
+                   return true
+            });
+
+                    //    var listaNueva:Post[] =[];
+                    //    lista.forEach(element => {
+                    //        console.log(element)
+                    //     element.categories.forEach(element2 => {
+                    //            if(element2.id==id)
+                    //             listaNueva.push(element)
                                
-                           });
+                    //        });
                            
-                       });
-                       
-                       return listaNueva
+                    //    });
+                     
+                       return listaNueva;
 
                     })
                    
